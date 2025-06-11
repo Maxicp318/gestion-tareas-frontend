@@ -1,0 +1,56 @@
+<h2>Formulario: {{ tasks.id > 0? 'Actualizar': 'Crear' }} Tarea</h2>
+<form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm" >
+    <div>
+        <input class="form-control py-2"
+        placeholder="Nombre"
+        name="name"
+        #name="ngModel"
+        required
+        minlength="4"
+        [(ngModel)]="tasks.name">
+        @if (name.invalid && (name.dirty || name.touched)) {
+            <div class="alert alert-danger">
+                @if (name.errors!['required']) {
+                    El nombre es requerido
+                }
+                @if (name.errors!['minlength']) {
+                    El nombre debe tener al menos 4 caracteres
+                }
+            </div>
+        }
+    </div>
+    <div class="mt-2">
+        <input type="date" class="form-control py-2"
+        placeholder="Fecha expiracion"
+        name="dateExpiration"
+        #dateExpiration="ngModel"
+        required
+        [(ngModel)]="tasks.expirationDate">
+        @if (dateExpiration.invalid && (dateExpiration.dirty || dateExpiration.touched)) {
+            <div class="alert alert-danger">
+                @if (dateExpiration.errors!['required']) {
+                    La fecha de expiracion es requerida es requerido
+                }
+            </div>
+        }
+    </div>
+    <div class="mt-2">
+        <label for="status" class="form-label">Estado: </label>
+        <select class="form-select"
+        id="status" 
+        name="status"
+        #status="ngModel"
+        [(ngModel)]="tasks.status"
+        required>
+
+            <option [ngValue]="null" disabled selected>Seleccione un estado</option>
+            <option [ngValue]="'pendiente'">Pendiente</option>
+            <option [ngValue]="'completado'">Completado</option>
+        </select>
+    </div>
+    <div class="mt-2">
+        <button class="btn btn-success" type="submit" [disabled]="taskForm.form.invalid">
+            {{tasks.id > 0? "Actualizar": "Crear"}}
+        </button>
+    </div>
+</form>
