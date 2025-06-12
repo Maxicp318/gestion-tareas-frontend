@@ -1,13 +1,15 @@
-<h2>Formulario: {{ tasks.id > 0? 'Actualizar': 'Crear' }} Tarea</h2>
+<h2 class="text-center">Formulario: {{ tasks.id > 0? 'Actualizar': 'Crear' }} Tarea</h2>
 <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm" >
-    <div>
-        <input class="form-control py-2"
-        placeholder="Nombre"
+    <div class="form-floating mb-3">
+        <input class="form-control"
+        placeholder="Nombre de la tarea"
+        id="floatingInput"
         name="name"
         #name="ngModel"
         required
         minlength="4"
         [(ngModel)]="tasks.name">
+        <label for="floatingInput">Nombre de la tarea</label>
         @if (name.invalid && (name.dirty || name.touched)) {
             <div class="alert alert-danger">
                 @if (name.errors!['required']) {
@@ -19,13 +21,14 @@
             </div>
         }
     </div>
-    <div class="mt-2">
-        <input type="date" class="form-control py-2"
-        placeholder="Fecha expiracion"
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control"
+        id="date"
         name="dateExpiration"
         #dateExpiration="ngModel"
         required
         [(ngModel)]="tasks.expirationDate">
+        <label for="date">Fecha expiracion: </label>
         @if (dateExpiration.invalid && (dateExpiration.dirty || dateExpiration.touched)) {
             <div class="alert alert-danger">
                 @if (dateExpiration.errors!['required']) {
@@ -34,19 +37,17 @@
             </div>
         }
     </div>
-    <div class="mt-2">
-        <label for="status" class="form-label">Estado: </label>
+    <div class="form-floating mb-3">  
         <select class="form-select"
         id="status" 
         name="status"
         #status="ngModel"
         [(ngModel)]="tasks.status"
         required>
-
-            <option [ngValue]="null" disabled selected>Seleccione un estado</option>
             <option [ngValue]="'pendiente'">Pendiente</option>
             <option [ngValue]="'completado'">Completado</option>
         </select>
+        <label for="status">Seleccione un estado</label>
     </div>
     <div class="mt-2">
         <button class="btn btn-success" type="submit" [disabled]="taskForm.form.invalid">
