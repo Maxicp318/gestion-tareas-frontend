@@ -1,6 +1,7 @@
 <h2>Formulario: {{ tasks.id > 0? 'Actualizar': 'Crear' }} Tarea</h2>
 <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm" >
     <div>
+        <label for="status" class="form-label">Nombre: </label>
         <input class="form-control py-2"
         placeholder="Nombre"
         name="name"
@@ -20,6 +21,7 @@
         }
     </div>
     <div class="mt-2">
+        <label for="status" class="form-label">Fecha Expiración: </label>
         <input type="date" class="form-control py-2"
         placeholder="Fecha expiracion"
         name="dateExpiration"
