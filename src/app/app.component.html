@@ -1,9 +1,9 @@
 <div class="container py-4">
-    <div class="row">
-        <div class="col">
+    <div>
+        <div class="w-50 mx-auto">
             <task-form (addTaskEvent)="addTask($event)" [tasks]="taskSelected"></task-form>
         </div>
-        <div class="col">
+        <div class="mt-4 container-sm border border-dark p-3 bg-dark text-white rounded-3">
             <table-task [tasks]="tasks"
             (updateTask)="onUpdateTask($event)"
             (removeTask)="onRemoveTask($event)"></table-task>

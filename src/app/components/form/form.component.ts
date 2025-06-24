@@ -21,4 +21,9 @@ export class FormComponent {
       taskForm.resetForm();
     }
   }
+
+  onCancel(form: NgForm): void {
+    form.resetForm
+    this.tasks = new Task();
+  }
 }

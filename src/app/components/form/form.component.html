@@ -49,9 +49,12 @@
         </select>
         <label for="status">Seleccione un estado</label>
     </div>
-    <div class="mt-2">
+    <div class="mt-2 d-flex justify-content-between">
         <button class="btn btn-success" type="submit" [disabled]="taskForm.form.invalid">
             {{tasks.id > 0? "Actualizar": "Crear"}}
+        </button>
+        <button class="btn btn-danger" type="button" (click)="onCancel(taskForm)">
+            Cancelar
         </button>
     </div>
 </form>
