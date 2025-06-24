@@ -26,3 +26,10 @@ Este es un proyecto de frontend desarrollado con **Angular** y **TypeScript**, q
 - ➕ Crear nuevas tareas
 - ✏️ Editar tareas existentes
 - ❌ Eliminar tareas
+
+---
+
+## 🙋‍♂️ Autor
+
+- **Maxi Pérez**
+- 💼 [LinkedIn](https://www.linkedin.com/in/maxiperez-dev)
