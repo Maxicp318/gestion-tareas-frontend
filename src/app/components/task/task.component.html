@@ -1,7 +1,7 @@
 <h2 class="text-center pb-4 text-decoration-underline">{{ title }}</h2>
 
 <div *ngIf="tasks.length > 0; else noTasks" class="d-flex flex-wrap justify-content-center gap-3">
-  <div *ngFor="let task of tasks; let i = index" class="card text-white" [ngClass]="taskColorMap.get(task.id!)">
+  <div *ngFor="let task of tasks; let i = index" class="card text-white w-25" [ngClass]="taskColorMap.get(task.id!)">
     <div class="card-body">
       <h5 class="card-title">{{ task.name }}</h5>
       <p class="card-text">
