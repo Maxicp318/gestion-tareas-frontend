@@ -7,7 +7,7 @@ Este es un proyecto de frontend desarrollado con **Angular** y **TypeScript**, q
 ## 🌐 Demo en línea
 
 🔗 La aplicación está desplegada en **Netlify**:  
-👉 [https://app-tasks-frontend.netlify.app/](https://app-tasks-frontend.netlify.app/)
+👉 [https://gestion-tareas-frontend.netlify.app/](https://gestion-tareas-frontend.netlify.app/)
 
 ---
 
