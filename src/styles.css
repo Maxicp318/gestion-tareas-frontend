@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 .bg-radial-ibelick {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: -1;
   width: 100%;
