@@ -20,7 +20,7 @@ export class TaskComponent implements OnChanges {
   cardColors: string[] = [
     'bg-primary',
     'bg-secondary',
-    'bg-success',
+    'bg-dark',
     'bg-danger',
     'bg-warning',
     'bg-info'

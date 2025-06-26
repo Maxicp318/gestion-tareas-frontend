@@ -1,9 +1,11 @@
-<div class="container py-4">
-    <div>
-        <div class="w-50 mx-auto">
+<div class="container py-2">
+    <h1 class="text-center pb-4 fst-italic text-white text-decoration-underline">{{ title }}</h1>
+    <div class="border border-5 border-success rounded-3 p-3 text-white">
+        <div class="mx-auto pb-4"
+            [ngStyle]="{ 'width': '22rem' }">
             <task-form (addTaskEvent)="addTask($event)" [tasks]="taskSelected"></task-form>
         </div>
-        <div class="mt-4 container-sm border border-dark p-3 bg-dark text-white rounded-3">
+        <div class="mt-4 container-sm p-3 border border-2 border-white bg-success text-white rounded-3">
             <table-task [tasks]="tasks"
             (updateTask)="onUpdateTask($event)"
             (removeTask)="onRemoveTask($event)"></table-task>

@@ -1,16 +1,22 @@
-<h2 class="text-center pb-4 text-decoration-underline">{{ title }}</h2>
+<h2 class="text-center pb-4 fst-italic">{{ title }}</h2>
 
-<div *ngIf="tasks.length > 0; else noTasks" class="d-flex flex-wrap justify-content-center gap-3">
-  <div *ngFor="let task of tasks; let i = index" class="card text-white" [ngClass]="taskColorMap.get(task.id!)">
+<div *ngIf="tasks.length > 0; else noTasks" 
+  class="d-flex flex-wrap justify-content-center gap-3">
+  <div *ngFor="let task of tasks; let i = index" 
+    class="card text-white text-center border border-3"
+    [ngStyle]="{ 'width': '18rem' }"
+    [ngClass]="taskColorMap.get(task.id!)">
     <div class="card-body">
-      <h5 class="card-title">{{ task.name }}</h5>
+      <h5 class="card-title text-decoration-underline fw-bold">{{ task.name }}</h5>
       <p class="card-text">
-        <strong>Creada:</strong> {{ task.createdDate }}<br>
-        <strong>Expira:</strong> {{ task.expirationDate }}<br>
+        <strong>Fecha Creada:</strong> {{ task.createdDate }}<br>
+        <strong>Fecha Expiracion:</strong> {{ task.expirationDate }}<br>
         <strong>Estado:</strong> {{ task.status === 'completado' ? '✅ Completado' : '⭕ Pendiente' }}
       </p>
-      <button class="btn btn-primary btn-sm me-2 border" (click)="onUpdateTask(task)">Actualizar</button>
-      <button class="btn btn-danger btn-sm border" (click)="onRemoveTask(task.id)">Eliminar</button>
+      <button class="btn btn-primary btn-sm me-2 border" 
+        (click)="onUpdateTask(task)">Actualizar</button>
+      <button class="btn btn-danger btn-sm border" 
+        (click)="onRemoveTask(task.id)">Eliminar</button>
     </div>
   </div>
 </div>

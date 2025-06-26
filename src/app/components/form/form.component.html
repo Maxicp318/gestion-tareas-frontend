@@ -1,17 +1,17 @@
-<h2 class="text-center">Formulario: {{ tasks.id > 0? 'Actualizar': 'Crear' }} Tarea</h2>
+<h2 class="text-center fst-italic">Formulario: {{ tasks.id > 0? 'Actualizar': 'Crear' }} Tarea</h2>
 <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm" >
+    <label for="name" class="form-label">Nombre de la tarea:</label>
     <div class="form-floating mb-3">
         <input class="form-control"
         placeholder="Nombre de la tarea"
-        id="floatingInput"
+        id="name"
         name="name"
         #name="ngModel"
         required
         minlength="4"
         [(ngModel)]="tasks.name">
-        <label for="floatingInput">Nombre de la tarea</label>
         @if (name.invalid && (name.dirty || name.touched)) {
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mt-1">
                 @if (name.errors!['required']) {
                     El nombre es requerido
                 }
@@ -21,6 +21,8 @@
             </div>
         }
     </div>
+    
+    <label for="date" class="form-label">Fecha expiracion: </label>
     <div class="form-floating mb-3">
         <input type="date" class="form-control"
         placeholder="Fecha expiracion"
@@ -28,26 +30,32 @@
         #dateExpiration="ngModel"
         required
         [(ngModel)]="tasks.expirationDate">
-        <label for="date">Fecha expiracion: </label>
         @if (dateExpiration.invalid && (dateExpiration.dirty || dateExpiration.touched)) {
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mt-1">
                 @if (dateExpiration.errors!['required']) {
                     La fecha de expiracion es requerida es requerido
                 }
             </div>
         }
     </div>
-    <div class="form-floating mb-3">  
+    
+    <label for="status" class="form-label">Seleccione un estado:</label>
+    <div class="form-floating">  
         <select class="form-select"
         id="status" 
         name="status"
         #status="ngModel"
         [(ngModel)]="tasks.status"
         required>
+            <option value="" disabled selected>Seleccione un estado</option>
             <option [ngValue]="'pendiente'">Pendiente</option>
             <option [ngValue]="'completado'">Completado</option>
         </select>
-        <label for="status">Seleccione un estado</label>
+    </div>
+    <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert alert-danger mt-1">
+        <div *ngIf="status.errors?.['required']">
+            El estado es requerido
+        </div>
     </div>
     <div class="mt-2 d-flex justify-content-between">
         <button class="btn btn-success" type="submit" [disabled]="taskForm.form.invalid">

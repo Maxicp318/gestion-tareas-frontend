@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/task';
 import { FormsModule, NgForm } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'task-form',
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
 templateUrl: './form.component.html',
 })
 export class FormComponent {

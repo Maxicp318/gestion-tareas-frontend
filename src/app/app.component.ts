@@ -5,14 +5,16 @@ import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './services/task.service';
 import Swal from 'sweetalert2';
 import { FormComponent } from "./components/form/form.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [TaskComponent, FormComponent],
+  imports: [TaskComponent, FormComponent, CommonModule],
 })
 export class AppComponent implements OnInit {
+  title: string = 'Gestion de Tareas';
   tasks: Task[] = [];
   taskSelected: Task = new Task();
 
