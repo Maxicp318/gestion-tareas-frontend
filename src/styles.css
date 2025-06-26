@@ -4,6 +4,6 @@
   inset: 0;
   z-index: -1;
   width: 100%;
-  height: min-height;
+  height: min-content;
   background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
 }
