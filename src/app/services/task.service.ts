@@ -8,7 +8,7 @@ import { Task } from '../models/task';
 })
 export class TaskService {
 
-  private url: string = "https://app-tasks-api.onrender.com/";
+  private url: string = "https://app-tasks-api.onrender.com";
 
   constructor(private http: HttpClient) { }
 
